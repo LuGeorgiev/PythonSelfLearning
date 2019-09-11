@@ -13,7 +13,7 @@ class Dog(Animal):
         return 'Bau Bauuuu'
 
     def __str__(self):
-        return f'Dog: {self.name}, age: {self.age}, num of legs: {self.number_of_legs}'
+        return f'Dog: {self.name}, age: {self.age}, number of legs: {self.number_of_legs}'
 
 
 class Cat(Animal):
@@ -25,7 +25,7 @@ class Cat(Animal):
         return 'I am very intelligent cat... blah blah'
 
     def __str__(self):
-        return f'Cat: {self.name}, age: {self.age}, intelligence: {self.iq}'
+        return f'Cat: {self.name}, age: {self.age}, IQ: {self.iq}'
 
 
 class Snake(Animal):
@@ -63,3 +63,12 @@ while not data_list[0].startswith("I'm"):
             animal_list.append(snake)
 
     data_list = input().split()
+
+dogs_list = filter(lambda x: isinstance(x, Dog), animal_list)
+cats_list = filter(lambda x: isinstance(x, Cat), animal_list)
+snakes_list = filter(lambda x: isinstance(x, Snake), animal_list)
+
+sorted_animals = dogs_list + cats_list + snakes_list
+for animal in sorted_animals:
+    print(animal)
+
