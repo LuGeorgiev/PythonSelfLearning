@@ -1,9 +1,10 @@
 numbers_list = list(map(int, input().split()))
 
 data = input()
-manipulated_num_list = []
+counter = 0
 
 while not data == "exhausted":
+    manipulated_num_list = []
     data_list = input().split()
     command = data_list[0]
 
@@ -32,9 +33,17 @@ while not data == "exhausted":
         right = int(data_list[2])
         if 0 <= left < len(numbers_list) and 0 <= right < len(numbers_list):
             manipulated_num_list = numbers_list[left:right+1]
+        else:
+            print('IndexError caught')
     elif command == 'sort':
-        pass
+        manipulated_num_list = list(sorted(numbers_list))
     elif command == 'reverse':
-        pass
+        manipulated_num_list = list(reversed(numbers_list))
 
-    data= input()
+    if len(manipulated_num_list) > 0:
+        print(manipulated_num_list)
+
+    counter += 1
+    data = input()
+
+print(f'I beat it for: {counter} rounds')
